@@ -11,6 +11,8 @@ import Divider from '@material-ui/core/Divider';
 
 import Account from './Views/Account/Account';
 import Drawer from './Components/Drawer/Drawer';
+import Dashboard from './Views/Dashboard/Dashboard';
+
 import Footer from './Components/Footer/Footer';
 
 import theme from './theme';
@@ -54,7 +56,7 @@ function App(props) {
           <div className={classes.app}>
             <main className={classes.main}>
               <Switch>
-                <Route exact path="/" component={Account} />
+                <Route exact path="/" component={Dashboard} />
                 <Route path="/profile" component={Account} />
               </Switch>
             </main>

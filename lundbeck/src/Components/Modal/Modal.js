@@ -87,7 +87,7 @@ export default function SimpleModal() {
             {
                 openRegister 
                     ? <Login handleOpen={handleOpen} handleClose={handleClose} /> 
-                    : <Login handleOpen={handleOpen} handleClose={handleClose} />
+                    : <Register handleOpen={handleOpen} handleClose={handleClose} />
             }
         </Modal>
     </>
