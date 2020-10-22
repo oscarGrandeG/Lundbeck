@@ -1,25 +1,76 @@
-import React from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import {
+  ThemeProvider,
+  withStyles,
+} from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Divider from '@material-ui/core/Divider';
 
-import ProTip from './components/ProTip';
-import Dashboard from './components/Dashboard';
-import MiniDrawer from './components/Drawer';
 
+import Account from './Views/Account/Account';
+import Drawer from './Components/Drawer/Drawer';
+import Footer from './Components/Footer/Footer';
 
-export default function App() {
+import theme from './theme';
+
+const drawerWidth = 0;
+
+const styles = {
+  root: {
+    display: 'flex',
+    minHeight: '100vh',
+  },
+  drawer: {
+    [theme.breakpoints.up('xl')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  },
+  app: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  main: {
+    flex: 1,
+    padding: theme.spacing(15, 4),
+    background: '#ffffff',
+  },
+};
+
+function App(props) {
+  const { classes } = props;
+
   return (
-    <Container maxWidth="xl">
-      <MiniDrawer />
-      <Router>
+    <ThemeProvider theme={theme}>
+    <div className={classes.root}>
+      <CssBaseline />
+      <nav className={classes.drawer}>
+        <Drawer />
+      </nav>
+      <div className={classes.app}>
+        <main className={classes.main}>
+        <Router>
           <Switch>
-            <Route exact path="/" component={Dashboard} />
-            <Route path="/proTip" component={ProTip} />
+            <Route exact path="/" component={Account} />
+            <Route exact path="/profile" component={Account} />
           </Switch>
         </Router>
-    </Container>
+        </main>
+        <Divider />
+        {/* <Footer /> */}
+      </div>
+    </div>
+  </ThemeProvider>
   );
 };
+
+
+
+App.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(App);
