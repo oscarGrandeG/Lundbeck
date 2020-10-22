@@ -8,20 +8,19 @@ import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-
+import CloseIcon from '@material-ui/icons/Close';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
+
+import Modal from '../Modal/Modal';
+
 
 import useStyles from './styles';
 
@@ -66,16 +65,7 @@ export default function MenuAppBar() {
               alt="logo"
             />
           </Typography>
-          <div>
-              <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                className={classes.profile}
-              >
-                <AccountCircle />
-              </IconButton>
-          </div>
+          <Modal />
         </Toolbar>
       </AppBar>
       <Drawer
@@ -89,31 +79,34 @@ export default function MenuAppBar() {
       >
         <div className={classes.toolbar}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            <CloseIcon />
           </IconButton>
         </div>
-        <Divider />
         <List className={classes.navigationList}>
-            <NavLink to="/">
+            <NavLink to="/" className={classes.nav}>
               <ListItem button>
                 <ListItemIcon><DashboardIcon style={{color:"#ffa726"}} /></ListItemIcon>
                 <ListItemText primary="Dashboard" />
               </ListItem>
             </NavLink>
-            <NavLink to="/profile">
+            <NavLink to="/profile" className={classes.nav}>
               <ListItem button>
                 <ListItemIcon><AccountBoxIcon style={{color:"#43a047"}} /></ListItemIcon>
                 <ListItemText primary="Mi Cuenta" />
               </ListItem>
             </NavLink>
-            <ListItem button>
-              <ListItemIcon><VideogameAssetIcon style={{color:"#e53935"}} /></ListItemIcon>
-              <ListItemText primary="Juegos" />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon><ContactSupportIcon style={{color:"#00acc1"}} /></ListItemIcon>
-              <ListItemText primary="Contacto" />
-            </ListItem>
+            <NavLink to="/" className={classes.nav}>
+              <ListItem button>
+                <ListItemIcon><VideogameAssetIcon style={{color:"#e53935"}} /></ListItemIcon>
+                <ListItemText primary="Juegos" />
+              </ListItem>
+            </NavLink>
+            <NavLink to="/" className={classes.nav}>
+              <ListItem button>
+                <ListItemIcon><ContactSupportIcon style={{color:"#00acc1"}} /></ListItemIcon>
+                <ListItemText primary="Contacto" />
+              </ListItem>
+            </NavLink>
         </List>
       </Drawer>
     </div>

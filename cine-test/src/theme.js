@@ -8,8 +8,8 @@ let theme = createMuiTheme({
       main: '#009be5',
       dark: '#006db3',
     },
-    layout: '#f6f5f1',
-    layout1: '#f6f5f1',
+    layout: '#eee',
+    layout1: '#eee',
   },
   typography: {
     h5: {

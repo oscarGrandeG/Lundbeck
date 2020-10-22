@@ -36,7 +36,7 @@ const styles = {
   main: {
     flex: 1,
     padding: theme.spacing(15, 4),
-    background: '#ffffff',
+    background: '#fff',
   },
 };
 
