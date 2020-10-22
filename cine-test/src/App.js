@@ -44,26 +44,26 @@ function App(props) {
   const { classes } = props;
 
   return (
-    <ThemeProvider theme={theme}>
-    <div className={classes.root}>
-      <CssBaseline />
-      <nav className={classes.drawer}>
-        <Drawer />
-      </nav>
-      <div className={classes.app}>
-        <main className={classes.main}>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Account} />
-            <Route exact path="/profile" component={Account} />
-          </Switch>
-        </Router>
-        </main>
-        <Divider />
-        {/* <Footer /> */}
-      </div>
-    </div>
-  </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <div className={classes.root}>
+          <CssBaseline />
+          <nav className={classes.drawer}>
+            <Drawer />
+          </nav>
+          <div className={classes.app}>
+            <main className={classes.main}>
+              <Switch>
+                <Route exact path="/" component={Account} />
+                <Route path="/profile" component={Account} />
+              </Switch>
+            </main>
+            <Divider />
+            {/* <Footer /> */}
+          </div>
+        </div>
+      </ThemeProvider>
+    </Router>
   );
 };
 

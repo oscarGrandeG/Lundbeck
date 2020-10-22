@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 import clsx from 'clsx';
 import { useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -15,7 +16,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
 import DashboardIcon from '@material-ui/icons/Dashboard';
@@ -94,15 +94,18 @@ export default function MenuAppBar() {
         </div>
         <Divider />
         <List className={classes.navigationList}>
-
-            <ListItem button>
-              <ListItemIcon><DashboardIcon style={{color:"#ffa726"}} /></ListItemIcon>
-              <ListItemText primary="Dashboard" />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon><AccountBoxIcon style={{color:"#43a047"}} /></ListItemIcon>
-              <ListItemText primary="Mi Cuenta" />
-            </ListItem>
+            <NavLink to="/">
+              <ListItem button>
+                <ListItemIcon><DashboardIcon style={{color:"#ffa726"}} /></ListItemIcon>
+                <ListItemText primary="Dashboard" />
+              </ListItem>
+            </NavLink>
+            <NavLink to="/profile">
+              <ListItem button>
+                <ListItemIcon><AccountBoxIcon style={{color:"#43a047"}} /></ListItemIcon>
+                <ListItemText primary="Mi Cuenta" />
+              </ListItem>
+            </NavLink>
             <ListItem button>
               <ListItemIcon><VideogameAssetIcon style={{color:"#e53935"}} /></ListItemIcon>
               <ListItemText primary="Juegos" />
